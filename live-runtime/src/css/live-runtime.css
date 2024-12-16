@@ -7,6 +7,8 @@
   --exercise-cap-bg: var(--bs-light-bg-subtle, #f8f8f8);
   --exercise-line-bg: rgba(var(--exercise-primary-rgb), 0.05);
   --exercise-line-gutter-bg: rgba(var(--exercise-primary-rgb), 0.1);
+  --exercise-code-block-color: var(--quarto-scss-export-code-block-color, var(--exercise-main-color));
+  --exercise-code-block-bg: var(--quarto-scss-export-code-block-bg, var(--exercise-main-bg));
 }
 
 .quarto-dark {
@@ -17,6 +19,8 @@
   --exercise-cap-bg: var(--bs-card-cap-bg, #505050);
   --exercise-line-bg: rgba(var(--exercise-primary-rgb), 0.2);
   --exercise-line-gutter-bg: rgba(var(--exercise-primary-rgb), 0.4);
+  --exercise-code-block-color: var(--quarto-scss-export-code-block-color, var(--exercise-main-color));
+  --exercise-code-block-bg: var(--quarto-scss-export-code-block-bg, var(--exercise-main-bg));
 }
 
 /* Minimal styling for hints and solution blocks */
@@ -125,19 +129,19 @@
 }
 
 .card.exercise-editor .cm-editor {
-  color: var(--exercise-main-color);
-  background-color: var(--exercise-main-bg);
+  color: var(--exercise-code-block-color);
+  background-color: var(--exercise-code-block-bg);
   /* n * line-height + padding */
   max-height: calc(var(--exercise-max-lines) * 1.4 * var(--exercise-font-size) + 8px);
 }
 
 .card.exercise-editor .cm-content {
-  caret-color: var(--exercise-main-color);
+  caret-color: var(--exercise-code-block-color);
 }
 
 .card.exercise-editor .cm-cursor,
 .card.exercise-editor .cm-dropCursor {
-  border-left-color: var(--exercise-main-color);
+  border-left-color: var(--exercise-code-block-color);
 }
 
 .card.exercise-editor .cm-focused .cm-selectionBackgroundm .cm-selectionBackground,

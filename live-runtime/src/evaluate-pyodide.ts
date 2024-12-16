@@ -329,14 +329,16 @@ export class PyodideEvaluator implements ExerciseEvaluator {
     if (result.stdout) {
       const outputDiv = document.createElement("div");
       outputDiv.className = "exercise-cell-output cell-output cell-output-pyodide cell-output-stdout";
-      outputDiv.innerHTML = `<pre><code>${result.stdout}</code></pre>`;
+      outputDiv.innerHTML = "<pre><code></code></pre>";
+      outputDiv.querySelector('code').textContent = result.stdout;
       container.appendChild(outputDiv);
     }
 
     if (result.stderr) {
       const errorDiv = document.createElement("div");
       errorDiv.className = "exercise-cell-output cell-output cell-output-pyodide cell-output-stderr";
-      errorDiv.innerHTML = `<pre><code>${result.stderr}</code></pre>`;
+      errorDiv.innerHTML = "<pre><code></code></pre>";
+      errorDiv.querySelector('code').textContent = result.stderr;
       container.appendChild(errorDiv);
     }
 

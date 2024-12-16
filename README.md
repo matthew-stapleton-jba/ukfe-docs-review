@@ -76,3 +76,47 @@ plot(fit)
 Further documentation of how to use `quarto-live` in your documents to create rich interactive content can be found at:
 
 https://r-wasm.github.io/quarto-live/
+
+## Development build
+
+To rebuild the Quarto Live runtime, first enter the `live-runtime` directory and setup your Node environment by installing the required packages with `npm`:
+
+```
+$ cd live-runtime
+$ npm ci
+```
+
+Then, make the required changes to the TypeScript source files and run `npm run build` to rebuild the runtime:
+
+```
+$ npm run build
+
+> live-runtime@0.1.2-dev build
+> npx tsx build.ts
+
+
+  ../_extensions/live/resources/live-runtime.js    581.1kb
+  ../_extensions/live/resources/pyodide-worker.js   22.4kb
+  ../_extensions/live/resources/live-runtime.css    18.0kb
+
+⚡ Done in 44ms
+```
+
+Finally, re-render the `docs` directory to view your changes:
+
+```
+$ cd ../docs
+$ quarto preview
+```
+
+### Watching for changes during development
+
+A long running build process can be spawned that will watch for changes in the `live-runtime` directory and automatically rebuild on changes:
+
+```
+$ cd live-runtime
+$ npm run watch
+```
+
+Note that a second terminal running `quarto preview` must also be spawned so that Quarto files are re-rendered when the runtime changes,
+and in some cases forcing a Quarto re-render will be required by making a small change to a `.qmd` file in the `docs` directory.

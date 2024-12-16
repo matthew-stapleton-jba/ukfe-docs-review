@@ -55,6 +55,12 @@ export class WebREvaluator implements ExerciseEvaluator {
     this.shelter = new webR.Shelter();
     this.envManager = new EnvironmentManager(WebREnvironment.instance(webR), context);
 
+    // Collapse any trailing newlines in learner R code
+    // https://github.com/r-wasm/quarto-live/issues/77
+    if (this.context.code) {
+      this.context.code = this.context.code.replace(/\n\n+$/, '\n');
+    }
+
     // Default evaluation options
     this.options = Object.assign(
       {

@@ -14,6 +14,7 @@ import { loadScriptAsync, replaceScriptChildren } from './utils';
 
 declare global {
   interface Window {
+    Plotly: any;
     _ojs: {
       ojsConnector: any;
     }
@@ -21,6 +22,7 @@ declare global {
 }
 
 let stateElement: HTMLScriptElement | undefined;
+let plotly: boolean = false;
 
 export class PyodideEvaluator implements ExerciseEvaluator {
   container: OJSEvaluateElement;
@@ -186,7 +188,7 @@ export class PyodideEvaluator implements ExerciseEvaluator {
 
     const resultObject = await this.pyodide.runPythonAsync(
       atob(require('./scripts/Python/capture.py'))
-    , { locals });
+      , { locals });
     locals.destroy();
 
     const value = await resultObject.get("value");
@@ -294,6 +296,24 @@ export class PyodideEvaluator implements ExerciseEvaluator {
       dispatchEvent(new Event('load'));
     }
 
+    const appendPlotlyFigure = async (figure: PyProxy) => {
+      const locals = await this.pyodide.toPy({ figure });
+      const figureJson = await this.pyodide.runPythonAsync(`
+        import json
+        json.dumps(figure)
+      `, { locals });
+
+      if (!plotly) {
+        await loadScriptAsync("https://cdn.plot.ly/plotly-2.35.2.min.js");
+        plotly = true;
+      }
+      var figureObj = JSON.parse(figureJson);
+
+      const figureDiv = document.createElement('div');
+      window.Plotly.newPlot(figureDiv, figureObj.data, figureObj.layout);
+      container.appendChild(figureDiv);
+    }
+
     const appendHtml = async (html: string) => {
       if (options.output) {
         const outputDiv = document.createElement("div");
@@ -342,11 +362,12 @@ export class PyodideEvaluator implements ExerciseEvaluator {
       container.appendChild(errorDiv);
     }
 
-    for(let i = 0; i < await result.outputs.length; i++) {
+    for (let i = 0; i < await result.outputs.length; i++) {
       const item = await result.outputs.get(i);
       const imagebitmap = await item._repr_mime_("application/html-imagebitmap");
       const html = await item._repr_mime_("text/html");
       const widget = await item._repr_mime_("application/vnd.jupyter.widget-view+json");
+      const plotly = await item._repr_mime_("application/vnd.plotly.v1+json");
       const plain = await item._repr_mime_("text/plain");
       const png = await item._repr_mime_("image/png");
       const jpeg = await item._repr_mime_("image/jpeg");
@@ -358,6 +379,8 @@ export class PyodideEvaluator implements ExerciseEvaluator {
         appendHtml(html);
       } else if (widget) {
         appendJupyterWidget(widget);
+      } else if (plotly) {
+        appendPlotlyFigure(plotly);
       } else if (png) {
         appendDataUrlImage("image/png", png);
       } else if (jpeg) {

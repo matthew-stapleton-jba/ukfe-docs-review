@@ -73,7 +73,7 @@ def solve_lorenz(N=10, max_time=4.0, sigma=10.0, beta=8./3, rho=28.0):
   return x_t
 
 x_t = solve_lorenz(N, sigma = sigma, beta = beta, rho = rho)
-fig = go.FigureWidget()
+fig = go.Figure()
 for i in range(N):
   fig.add_trace(
       go.Scatter3d(
@@ -86,10 +86,8 @@ for i in range(N):
       )
   )
 fig.update_layout(
-    autosize=False,
     scene_camera_eye=dict(x=1.5, y=-1.5, z=1.5),
     width=800,
-    height=800,
     margin=dict(l=0, r=0, b=0, t=0)
 )
 fig

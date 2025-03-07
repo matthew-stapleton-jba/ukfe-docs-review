@@ -12,6 +12,8 @@ import {
 import { PyodideInterfaceWorker } from './pyodide-worker';
 import { loadScriptAsync, replaceScriptChildren } from './utils';
 
+import AnsiConvert from 'ansi-to-html';
+
 declare global {
   interface Window {
     Plotly: any;
@@ -346,11 +348,14 @@ export class PyodideEvaluator implements ExerciseEvaluator {
       container.appendChild(sourceDiv);
     }
 
+    const ansi = new AnsiConvert({ escapeXML: true });
     if (result.stdout) {
       const outputDiv = document.createElement("div");
       outputDiv.className = "exercise-cell-output cell-output cell-output-pyodide cell-output-stdout";
       outputDiv.innerHTML = "<pre><code></code></pre>";
-      outputDiv.querySelector('code').textContent = result.stdout;
+      const codeDiv = outputDiv.querySelector('code');
+      codeDiv.textContent = result.stdout;
+      codeDiv.innerHTML = ansi.toHtml(codeDiv.textContent);
       container.appendChild(outputDiv);
     }
 
@@ -358,7 +363,9 @@ export class PyodideEvaluator implements ExerciseEvaluator {
       const errorDiv = document.createElement("div");
       errorDiv.className = "exercise-cell-output cell-output cell-output-pyodide cell-output-stderr";
       errorDiv.innerHTML = "<pre><code></code></pre>";
-      errorDiv.querySelector('code').textContent = result.stderr;
+      const codeDiv = errorDiv.querySelector('code');
+      codeDiv.textContent = result.stderr;
+      codeDiv.innerHTML = ansi.toHtml(codeDiv.textContent);
       container.appendChild(errorDiv);
     }
 

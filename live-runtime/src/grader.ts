@@ -2,6 +2,7 @@ import { EvaluateOptions, EvaluateContext } from "./evaluate";
 import { WebREvaluator } from "./evaluate-webr";
 import { PyodideEvaluator } from "./evaluate-pyodide";
 import { EngineEnvironment, EnvironmentManager } from "./environment";
+import { b64Decode } from './utils';
 
 export class ExerciseGrader {
   evaluator: WebREvaluator | PyodideEvaluator;
@@ -36,7 +37,7 @@ export class ExerciseGrader {
       if (check.length > 1) {
         console.warn(`Multiple \`check\` blocks found for exercise "${exId}", using the first.`);
       }
-      const block = JSON.parse(atob(check[0].textContent));
+      const block = JSON.parse(b64Decode(check[0].textContent));
       return block.code;
     }
   }

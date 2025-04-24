@@ -10,7 +10,7 @@ import {
   EvaluateValue,
 } from "./evaluate";
 import { PyodideInterfaceWorker } from './pyodide-worker';
-import { loadScriptAsync, replaceScriptChildren } from './utils';
+import { loadScriptAsync, replaceScriptChildren, b64Decode } from './utils';
 
 import AnsiConvert from 'ansi-to-html';
 
@@ -74,7 +74,7 @@ export class PyodideEvaluator implements ExerciseEvaluator {
       if (setup.length > 1) {
         console.warn(`Multiple \`setup\` blocks found for exercise "${exId}", using the first.`);
       }
-      const block = JSON.parse(atob(setup[0].textContent));
+      const block = JSON.parse(b64Decode(setup[0].textContent));
       return block.code;
     }
   }

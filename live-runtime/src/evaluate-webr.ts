@@ -24,7 +24,7 @@ import {
   ExerciseEvaluator,
   OJSEvaluateElement,
 } from "./evaluate";
-import { arrayBufferToBase64, replaceScriptChildren } from './utils';
+import { arrayBufferToBase64, replaceScriptChildren, b64Decode } from './utils';
 
 import AnsiConvert from 'ansi-to-html';
 
@@ -100,7 +100,7 @@ export class WebREvaluator implements ExerciseEvaluator {
       if (setup.length > 1) {
         console.warn(`Multiple \`setup\` blocks found for exercise "${exId}", using the first.`);
       }
-      const block = JSON.parse(atob(setup[0].textContent));
+      const block = JSON.parse(b64Decode(setup[0].textContent));
       return block.code;
     }
   }

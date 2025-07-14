@@ -3,6 +3,8 @@ format: live-html
 title: Displaying Tables
 webr:
   render-df: gt-interactive
+  cell-options:
+    autorun: true
 engine: knitr
 toc: true
 ---

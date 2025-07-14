@@ -3,6 +3,9 @@ title: Managing Environments
 format: live-html
 engine: knitr
 toc: true
+webr:
+  cell-options:
+    autorun: true
 ---
 
 {{< include ../_extensions/live/_knitr.qmd >}}
@@ -212,6 +215,7 @@ The `dataset` variable has been created in a `setup: true` block.
 Calculate the mean of the `foo` column in `dataset`. Save the result as `my_mean`.
 
 ```{webr}
+#| autorun: false
 #| envir: myenv
 #| exercise: ex_shared_1a
 my_mean <- ______(dataset$foo)
@@ -234,6 +238,7 @@ The `dataset` variable is also accessible from this exercise, because both exerc
 Calculate the standard deviation of the `bar` column in `dataset`.
 
 ```{webr}
+#| autorun: false
 #| exercise: ex_shared_1b
 #| envir: myenv
 sd(______)

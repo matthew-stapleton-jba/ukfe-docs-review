@@ -4,6 +4,8 @@ subtitle: Dynamic data visualisation for interactive code blocks
 format: live-html
 engine: knitr
 webr:
+  cell-options:
+    autorun: true
   packages:
     - ggplot2
 pyodide:

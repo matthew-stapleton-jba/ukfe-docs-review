@@ -6,6 +6,8 @@ toc: true
 resources:
   - "images"
 pyodide:
+  cell-options:
+    autorun: true
   packages:
     - matplotlib
     - ipywidgets

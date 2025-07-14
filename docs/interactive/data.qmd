@@ -4,6 +4,9 @@ subtitle: Automatic handling of data conversion to and from WebAssembly
 format: live-html
 engine: knitr
 toc: true
+webr:
+  cell-options:
+    autorun: true
 ---
 
 {{< include ../_extensions/r-wasm/live/_knitr.qmd >}}

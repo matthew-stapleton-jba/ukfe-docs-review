@@ -7,10 +7,14 @@ toc: true
 resources:
   - data
 webr:
+  cell-options:
+    autorun: true
   resources:
     - data
     - https://raw.githubusercontent.com/mwaskom/seaborn-data/master/flights.csv
 pyodide:
+  cell-options:
+    autorun: true
   packages:
     - pandas
     - seaborn

@@ -4,6 +4,8 @@ subtitle: Client-side interactive documents through integration with OJS
 format: live-html
 engine: knitr
 webr:
+  cell-options:
+    autorun: true
   packages:
     - palmerpenguins
     - ggplot2

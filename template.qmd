@@ -10,7 +10,7 @@ webr:
 
 {{< include _extensions/live/_knitr.qmd >}}
 
-## Interactive code blocks
+## Interactive code blocks DEMO
 
 ```{.webr}
 library(ggplot2)

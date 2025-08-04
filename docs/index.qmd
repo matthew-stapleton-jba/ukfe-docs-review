@@ -3537,7 +3537,8 @@ library(sf)
 library(leaflet)
 ```
 
-```{r}
+```{webr}
+#| edit: false
 #| echo: false
 #| message: false
 

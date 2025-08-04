@@ -1,12 +1,18 @@
 ---
-title: Introduction
-subtitle: WebAssembly powered code blocks and exercises for Quarto HTML documents
-format: live-html
+title: "UKFE training materials"
+format: live-html 
 engine: knitr
-toc: true
+webr:
+  packages:
+    - UKFE
+    - leaflet
+    - sf
+    
+resources:
+  - Data
 ---
 
-{{< include _extensions/r-wasm/live/_knitr.qmd >}}
+{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
 
 ```{=html}
 <style>

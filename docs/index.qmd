@@ -1060,10 +1060,12 @@ DiagPlots(Pool_27081)
 
 The `Pool()` function does not currently include gauge names in the pooling group so you can either manually check for gauges on the same river or merge your own lookup table with the pooling group. You could use the NRFA metadata by installing the 'rnrfa' R package and using its `catalogue()` function. An example workflow is as follows:
 
-```{r, warning = FALSE}
-# Load the rnrfa package
+```{r, eval = FALSE}
+# Load the package
 library(rnrfa)
+```
 
+```{r, warning = FALSE}
 # Extract the NRFA gauge metadata
 gauge_metadata <- catalogue()
 
@@ -1492,8 +1494,6 @@ Use the `rnrfa` package to extract gauge metadata and merge with your pooling gr
 #| exercise: pool_merge
 #| runbutton: false
 #| output: false
-# Load the package
-library(rnrfa)
 
 # Extract the NRFA gauge metadata
 gauge_metadata <- ______
@@ -1533,9 +1533,6 @@ Pool_90003_merged_subset
 
 ::: {.solution exercise="pool_merge"}
 ``` r
-# Load the package
-library(rnrfa)
-
 # Extract the NRFA gauge metadata
 gauge_metadata <- catalogue()
 
@@ -3534,11 +3531,14 @@ NGRDist(i = c(cds_10001$Value[cds_10001$Descriptor == "Easting"],
 
 Let's find out the Pythagorean distance between the gauge for the Weisdale Burn at Weisdale Mill and the Penberth River at Penberth in the following exercise. As this map displays, they're quite far apart!
 
+```{r, eval = FALSE}
+library(sf)
+library(leaflet)
+```
+
 ```{r}
 #| echo: false
 #| message: false
-library(sf)
-library(leaflet)
 
 # Example BNG coordinates (easting, northing)
 bng_coords <- data.frame(

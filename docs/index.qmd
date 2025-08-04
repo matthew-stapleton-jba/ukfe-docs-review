@@ -251,7 +251,7 @@ install.packages(UKFE)
 
 Once you have installed the package, this will be saved in your package library. Every time you want to use the package, you need to load it from the library using the following code:
 
-```{r, warning = FALSE}
+```{r, eval = FALSE}
 library(UKFE)
 ```
 

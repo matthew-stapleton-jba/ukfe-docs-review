@@ -14,13 +14,6 @@ toc: true
 
 {{< include _extensions/r-wasm/live/_knitr.qmd >}}
 
-```{=html}
-.main-content {
-  margin-left: 250px;
-}
-</style>
-```
-
 ## Introduction {#intro}
 
 This training material covers the functionality in the UKFE R package. It is an interactive document where you can run the code yourself and there are some exercises where you have to fill in the gaps. **You must have solved and run the code for each exercise in order for the following linked exercises to work.** Note that answers appear below the code. If there are multiple parts of the code that get written out, then the order of the results is the same as the order of the code.

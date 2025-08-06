@@ -2,8 +2,6 @@
 title: UKFE
 format: live-html
 engine: knitr
-packages:
-  - rnrfa
 webr:
   packages:
     - UKFE
@@ -846,11 +844,6 @@ DiagPlots(Pool_27081)
 The `Pool()` function does not currently include gauge names in the pooling group so you can either manually check for gauges on the same river or merge your own lookup table with the pooling group. You could use the NRFA metadata by installing the 'rnrfa' R package and using its `catalogue()` function. An example workflow is as follows:
 
 ```{r, eval = FALSE}
-# Load the package
-library(rnrfa)
-```
-
-```{r}
 # Load the package
 library(rnrfa)
 

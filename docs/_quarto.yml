@@ -4,7 +4,7 @@ project:
 website:
   title: "Example docs for UKFE"
   description: "Training materials"
-  repo-url: https://matthew-stapleton-jba.github.io/quarto-live/
+  repo-url: https://matthew-stapleton-jba.github.io/ukfe-docs-review/
   repo-actions: [edit, issue]
   repo-subdir: "docs"
   page-navigation: true

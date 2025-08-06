@@ -851,6 +851,9 @@ library(rnrfa)
 ```
 
 ```{r}
+# Load the package
+library(rnrfa)
+
 # Extract the NRFA gauge metadata
 gauge_metadata <- catalogue()
 

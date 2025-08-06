@@ -850,7 +850,7 @@ The `Pool()` function does not currently include gauge names in the pooling grou
 library(rnrfa)
 ```
 
-```{r, eval = FALSE}
+```{r}
 # Extract the NRFA gauge metadata
 gauge_metadata <- catalogue()
 

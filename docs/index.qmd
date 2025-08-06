@@ -1265,7 +1265,7 @@ DiagPlots(Pool_90003)
 :::
 ::::
 
-Use the `rnrfa` package to extract gauge metadata and merge with your pooling group information so that you can look at the gauge names. Note that this exercise is not interactive.
+Use the `rnrfa` package to extract gauge metadata and merge with your pooling group information so that you can look at the gauge names. Note that the code in the exercise assumes that you already have the `rnrfa` package loaded. This exercise is not interactive but the code can be run in your own RStudio environment.
 
 :::: panel-tabset
 ## Exercise
@@ -1273,9 +1273,6 @@ Use the `rnrfa` package to extract gauge metadata and merge with your pooling gr
 ```{webr}
 #| envir: scenario2
 #| exercise: pool_merge
-#| runbutton: false
-#| output: false
-
 # Extract the NRFA gauge metadata
 gauge_metadata <- ______
 

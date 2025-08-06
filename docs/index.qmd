@@ -1273,6 +1273,8 @@ Use the `rnrfa` package to extract gauge metadata and merge with your pooling gr
 ```{webr}
 #| envir: scenario2
 #| exercise: pool_merge
+#| runbutton: false
+#| output: false
 # Extract the NRFA gauge metadata
 gauge_metadata <- ______
 

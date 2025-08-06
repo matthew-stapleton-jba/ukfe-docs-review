@@ -2,6 +2,8 @@
 title: UKFE
 format: live-html
 engine: knitr
+packages:
+  - rnrfa
 webr:
   packages:
     - UKFE

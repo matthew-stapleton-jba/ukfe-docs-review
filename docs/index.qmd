@@ -264,7 +264,7 @@ You can find out more about a dataset using its help file, which can be accessed
 
 ```{webr}
 #| exercise: nrfa_data
-# Look at the documentation (help file) for the NFRAData
+# Look at the documentation (help file) for the NRFAData
 ______
 
 # Save the 'NRFAData' data frame to an object called 'NRFAData' within your R environment
@@ -278,8 +278,9 @@ ______(______)
 
 ::: {.solution exercise="nrfa_data"}
 ``` r
-# Look at the documentation (help file) for the NFRAData
-?NRFAData                                      #<1>
+# Look at the documentation (help file) for the NRFAData (commented out 
+# in this solution so that it will not run)
+# ?NRFAData                                      #<1>
 
 # Save the 'NRFAData' data frame to an object called 'NRFAData' within your R environment
 NRFAData <- NRFAData

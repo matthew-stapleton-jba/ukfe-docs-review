@@ -11,9 +11,6 @@ website:
   sidebar:
     contents:
       - href: index.qmd
-      - section: Subsection
-        contents:
-          - sub_section/subsection.qmd
 
 theme:
   light: cosmo

@@ -1,6 +1,5 @@
 ---
 title: Introduction
-subtitle: WebAssembly powered code blocks and exercises for Quarto HTML documents
 format: live-html
 engine: knitr
 webr:

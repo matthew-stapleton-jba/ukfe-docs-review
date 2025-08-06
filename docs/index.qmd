@@ -3311,11 +3311,6 @@ NGRDist(i = c(cds_10001$Value[cds_10001$Descriptor == "Easting"],
 
 Let's find out the Pythagorean distance between the gauge for the Weisdale Burn at Weisdale Mill and the Penberth River at Penberth in the following exercise. As this map displays, they're quite far apart!
 
-```{r, eval = FALSE}
-library(sf)
-library(leaflet)
-```
-
 ```{webr}
 #| edit: false
 #| echo: false

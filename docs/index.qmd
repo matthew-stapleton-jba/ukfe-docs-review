@@ -264,7 +264,7 @@ You can find out more about a dataset using its help file, which can be accessed
 
 ```{webr}
 #| exercise: nrfa_data
-# Look at the documentation (help file) for the NRFAData
+# Look at the documentation (help file) for NRFAData
 ______
 
 # Save the 'NRFAData' data frame to an object called 'NRFAData' within your R environment
@@ -278,7 +278,7 @@ ______(______)
 
 ::: {.solution exercise="nrfa_data"}
 ``` r
-# Look at the documentation (help file) for the NRFAData (commented out 
+# Look at the documentation (help file) for NRFAData (commented out 
 # in this solution so that it will not run)
 # ?NRFAData                                      #<1>
 
@@ -437,6 +437,8 @@ head(BelleverNov2024)
 
 #### GetDataEA_Rain {#dataea_rain}
 
+Note that the second exercise in this section is not interactive but the code should run in your own RStudio environment.
+
 ::::: panel-tabset
 ## Exercise
 
@@ -473,6 +475,8 @@ GetDataEA_Rain(Lat = 54.5, Lon = -3.2)
 Use the `GetDataEA_Rain()` function to get hourly data for December 2025 from the rain gauge with WISKI ID 592463 and then view the head of the resulting data frame.
 
 ```{webr}
+#| runbutton: false
+#| output: false
 #| envir: ukfe_traing_env
 #| exercise: ex_DataEA_Rain2
 # Use the WISKI reference for the Honister rain gauge to get some hourly 
@@ -503,7 +507,7 @@ head(HonisterDec2015)
 
 #### GetDataMetOffice {#datametoffice}
 
-Note that the exercises in this section are not interactive.
+Note that the exercises in this section are not interactive but the code should run in your own RStudio environment.
 
 ::::: panel-tabset
 ## Exercise

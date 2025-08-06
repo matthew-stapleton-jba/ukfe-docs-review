@@ -9,6 +9,9 @@ webr:
     - sf
     - rnrfa
 toc: true
+live:
+  show-hints: true
+  show-solutions: true
 ---
 
 {{< include _extensions/r-wasm/live/_knitr.qmd >}}

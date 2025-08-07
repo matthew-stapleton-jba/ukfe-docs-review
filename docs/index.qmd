@@ -24,6 +24,8 @@ Some functions within the UKFE package require internet access to perform API (a
 
 Please note that the `Zdists()` function is computationally intensive and may occasionally time out when run within this platform. This is not an issue with the function itself. Running it locally in your own R environment should improve performance and reliability.
 
+These exercises have been developed for the purposes of the training and code is likely to require editing before being used in practice.
+
 Before doing any analysis, you need to install the `UKFE` package. This only needs doing once (it will need redoing if the UKFE package is updated or if you update your version of R).
 
 ```{r, eval = FALSE}
@@ -1971,7 +1973,7 @@ EVPool(Pool_69048, AMAX = NULL, gauged = TRUE, dist = "Kappa3", UrbAdj = FALSE,
 
 ### Scenarios 4-6: Ungauged catchments {#ungaugedscenarios}
 
-The focus of these scenarios is primarily on estimating QMED using donors. The pooling groups and results are found in the same way as the previous examples.
+The focus of these scenarios is primarily on estimating QMED using donors. The pooling groups and results are found in the same way as the previous examples. These exercises involve use of xml files that contain catchment descriptor data for ungauged catchments; note that these files contain dummy data and the results should not be used outside of the training exercises.
 
 #### Scenario 4: Estimate QMED for an ungauged catchment in Wales using one donor and then estimate the growth curve {#scenario4}
 
@@ -1991,7 +1993,7 @@ As this is an ungauged catchment, we need to import the catchment descriptors fr
 #| envir: scenario4
 #| exercise: CDs_Wales
 # Extract catchment descriptors from xml file for Wales catchment
-CDs_Wales <- ______("Data/FEH_Catchment_Descriptors_279600_357100_v5_0_1.xml")
+CDs_Wales <- ______("Data/FEH_Catchment_Descriptors_Scenario4.xml")
 CDs_Wales
 ```
 
@@ -2000,7 +2002,7 @@ CDs_Wales
 ::: {.solution exercise="CDs_Wales"}
 ``` r
 # Extract catchment descriptors from xml file for Wales catchment
-CDs_Wales <- CDsXML("Data/FEH_Catchment_Descriptors_279600_357100_v5_0_1.xml")
+CDs_Wales <- CDsXML("Data/FEH_Catchment_Descriptors_Scenario4.xml")
 CDs_Wales
 ```
 :::
@@ -2220,7 +2222,7 @@ As this is an ungauged catchment, we need to import the catchment descriptors fr
 #| envir: scenario5
 #| exercise: CDs_NI
 # Extract catchment descriptors from xml file for Northern Ireland catchment
-CDs_NI <- ______("Data/FEH_Catchment_Descriptors_237850_364550_v5_0_1.xml")
+CDs_NI <- ______("Data/FEH_Catchment_Descriptors_Scenario5.xml")
 CDs_NI
 ```
 
@@ -2229,7 +2231,7 @@ CDs_NI
 ::: {.solution exercise="CDs_NI"}
 ``` r
 # Extract catchment descriptors from xml file for Northern Ireland catchment
-CDs_NI <- CDsXML("Data/FEH_Catchment_Descriptors_237850_364550_v5_0_1.xml")
+CDs_NI <- CDsXML("Data/FEH_Catchment_Descriptors_Scenario5.xml")
 CDs_NI
 ```
 :::
@@ -2451,7 +2453,7 @@ As this is an ungauged catchment, we need to import the catchment descriptors fr
 #| envir: scenario6
 #| exercise: CDs_urban
 # Extract catchment descriptors from xml file for urban catchment in England
-CDs_urban <- CDsXML("Data/FEH_Catchment_Descriptors_408850_290100_v5_0_1.xml")
+CDs_urban <- CDsXML("Data/FEH_Catchment_Descriptors_Scenario6.xml")
 CDs_urban
 ```
 
@@ -2460,7 +2462,7 @@ CDs_urban
 ::: {.solution exercise="CDs_urban"}
 ``` r
 # Extract catchment descriptors from xml file for urban catchment in England
-CDs_urban <- CDsXML("Data/FEH_Catchment_Descriptors_408850_290100_v5_0_1.xml")
+CDs_urban <- CDsXML("Data/FEH_Catchment_Descriptors_Scenario6.xml")
 CDs_urban
 ```
 :::

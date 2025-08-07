@@ -9,6 +9,9 @@ webr:
     - sf
     - rnrfa
 toc: true
+
+resources:
+  - Data
 ---
 
 {{< include _extensions/r-wasm/live/_knitr.qmd >}}

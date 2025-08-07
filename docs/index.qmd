@@ -2237,7 +2237,7 @@ CDs_NI
 :::
 ::::
 
-We can use the `DonAdj` function to find donor adjustment candidates for QMED. This provides results in order of the proximity to the centroid of the subject catchment. See the help file for other arguments you can set.
+We can use the `DonAdj` function to find donor adjustment candidates for QMED. This provides results in order of the proximity to the centroid of the subject catchment. See the help file for other arguments you can set. [TODO: Note that there is currently a bug when using Northern Ireland catchments so the donor catchments shown here are not correct. This bug has been resolved for the upcoming release of the UKFE package.]
 
 :::: panel-tabset
 ## Exercise
